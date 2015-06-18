@@ -16,7 +16,8 @@ video_capture = cv2.VideoCapture(0)
 # t = Timer(3, olar)
 # t.start() 
 
-counter = -1  
+counter = -1
+pessoas_antes = 0  
 
 while True:
     # Capture frame-by-frame
@@ -47,7 +48,23 @@ while True:
 
     if counter == 0:
         txt = open('faces', 'w')
-        txt.write("Found {0} faces!".format(len(faces)))
+        pessoas = int(format(len(faces)))
+
+        if pessoas_antes != pessoas:
+            pessoas_antes = pessoas
+            mudar = '1'
+        else:
+            mudar = '0'
+
+
+        temp = 27.3 - ((0.3)*pessoas)
+
+        if(temp < 18):
+            temp = 18
+        if(pessoas == 0):
+            temp = 30
+        temp = int(temp)
+        txt.write(mudar+"|"+str(temp))
         txt.close()
         # print "Found {0} faces!".format(len(faces))
     # end timer
