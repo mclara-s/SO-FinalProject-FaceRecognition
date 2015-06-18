@@ -64,8 +64,9 @@ while True:
         if(pessoas == 0 or temp > 30):
             temp = 30
         temp = int(temp)
-        txt.write(mudar+"|"+str(temp))
+        txt.write(str(temp))
         txt.close()
+        print temp
         # print "Found {0} faces!".format(len(faces))
     # end timer
 
