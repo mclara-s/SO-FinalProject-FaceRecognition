@@ -61,7 +61,7 @@ while True:
 
         if(temp < 18):
             temp = 18
-        if(pessoas == 0 || temp > 30):
+        if(pessoas == 0 or temp > 30):
             temp = 30
         temp = int(temp)
         txt.write(mudar+"|"+str(temp))
